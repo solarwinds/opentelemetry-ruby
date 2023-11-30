@@ -58,4 +58,4 @@ jobs:
           gem_version=${{ github.event.inputs.version }}
           cd ${{ github.event.inputs.rubygem-path }}
           gem build "${gem_name}.gemspec"
-          gem push --key github --host https://rubygems.pkg.github.com/xuan-cao-swi "${gem_name}-${gem_version}.gem"
+          gem push --key github --host https://rubygems.pkg.github.com/solarwinds "${gem_name}-${gem_version}.gem"
