@@ -17,7 +17,7 @@ case $GEM_NAME in
     ;;
   *)
     echo "Unknown gem name $GEM_NAME. Aborting publish"
-    GEM_PATH='nowhere'
+    exit 1
     ;;
 esac
 
