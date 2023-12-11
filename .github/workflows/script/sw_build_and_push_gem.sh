@@ -16,7 +16,7 @@ case $GEM_NAME in
     GEM_PATH="exporter/otlp/"
     ;;
   *)
-    echo "Unknown file type"
+    echo "Unknown gem name $GEM_NAME. Aborting publish"
     GEM_PATH='nowhere'
     ;;
 esac
