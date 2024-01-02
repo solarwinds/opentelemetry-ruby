@@ -34,5 +34,9 @@ gem_version=$(grep -E "VERSION\s*=\s*'[^']+'" "$found_file" | awk -F "'" '{print
 gem build "opentelemetry-$GEM_NAME.gemspec"
 gem push --key github --host https://rubygems.pkg.github.com/solarwinds "opentelemetry-$GEM_NAME-$gem_version.gem"
 
-# finished
-echo "Finished"
+if [ $? -eq 0 ]; then
+  echo "Finished"
+else
+  echo "Failed"
+  exit 1
+fi
