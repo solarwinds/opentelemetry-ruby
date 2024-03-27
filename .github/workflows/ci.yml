@@ -33,6 +33,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
+      - name: "Test Ruby 3.3"
+        uses: ./.github/actions/test_gem
+        with:
+          gem: "${{ matrix.gem }}"
+          ruby: "3.3"
       - name: "Test Ruby 3.2"
         uses: ./.github/actions/test_gem
         with:
@@ -77,6 +82,7 @@ jobs:
           - opentelemetry-exporter-otlp-grpc
           - opentelemetry-exporter-otlp-http
           - opentelemetry-exporter-zipkin
+          - opentelemetry-exporter-otlp-metrics
         os:
           - ubuntu-latest
           - macos-latest
@@ -91,6 +97,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
+      - name: "Test Ruby 3.3"
+        uses: ./.github/actions/test_gem
+        with:
+          gem: "${{ matrix.gem }}"
+          ruby: "3.3"
       - name: "Test Ruby 3.2"
         uses: ./.github/actions/test_gem
         with:
@@ -120,6 +131,7 @@ jobs:
           [[ "${{ matrix.gem }}" == "opentelemetry-exporter-otlp-common" ]] && echo "skip=true" >> $GITHUB_OUTPUT
           [[ "${{ matrix.gem }}" == "opentelemetry-exporter-otlp-http"   ]] && echo "skip=true" >> $GITHUB_OUTPUT
           [[ "${{ matrix.gem }}" == "opentelemetry-exporter-otlp-grpc"   ]] && echo "skip=true" >> $GITHUB_OUTPUT
+          [[ "${{ matrix.gem }}" == "opentelemetry-exporter-otlp-metrics" ]] && echo "skip=true" >> $GITHUB_OUTPUT
           # This is essentially a bash script getting evaluated, so we need to return true or the whole job fails.
           true
       - name: "Test JRuby"
@@ -158,6 +170,11 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
+      - name: "Test Ruby 3.3"
+        uses: ./.github/actions/test_gem
+        with:
+          gem: "${{ matrix.gem }}"
+          ruby: "3.3"
       - name: "Test Ruby 3.2"
         uses: ./.github/actions/test_gem
         with:
